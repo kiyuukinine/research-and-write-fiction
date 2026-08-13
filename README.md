@@ -1,45 +1,26 @@
-# research-and-write-fiction
+# 先读作家，再写小说
 
-> A research-driven fiction-writing skill for Codex and Claude: primary-text reading, traceable literary adaptation, project-aware revision, and structural anti-AI-slop checks.
+> `learn-from-writers`：让模型从真人作品里学写法，而不是继续模仿自己的 AI 文风。
 
 [English](README.en.md)
 
-这是一个面向小说与叙事散文的 Agent Skill。它把外部原文查读、项目连续性、叙事机制拆解、实质化用和分轮返修放进同一条工作流，用来完成续写、重写、扩写、润色、场景重建与人物声线校准。
+我做这个 Skill，是因为“参考某某作家写一段”通常没有什么用。模型多半不会去读那篇作品，只会凭记忆猜一个模糊的“作家风格”，最后还是用自己最熟悉的方式写：气氛先行、心理解释、整齐对话，再来一句像结论的段尾。
 
-它的目标不是让模型“更会写漂亮句子”，而是限制模型在没有材料、没有人物因果、没有场面运动时直接生成一篇看似完整的小说。
+`learn-from-writers` 改的是参考来源。写之前，它要先把真正的原文找出来，读具体场景及其前后文，看作家怎样处理人物、停顿、视角、信息和省略；回到你的小说以后，借的是这些处理方法，不是作品里的句子，也不是模型想象出来的“文学感”。
 
-## 为什么需要它
+## 它到底改了哪一步
 
-通用写作模型在文学任务中常见四类问题：
+| 直接让模型写 | 使用这个 Skill |
+|---|---|
+| 凭模型记忆猜测“某作家的风格” | 实际打开作品，阅读相关场景和必要上下文 |
+| 先生成一篇默认 AI 小说，再替换几个词 | 先看真人作家怎样组织人物、节奏和信息，再设计自己的场面 |
+| 把化用理解成换姓名、地点和意象 | 改变人物关系、知识差、表达载体、顺序、结果和余波 |
+| 用禁词表消除 AI 腔 | 检查人物是否被写得过分会沟通、心理是否替潜台词作了解释、段尾是否总在总结意义 |
+| 在已经失败的稿子上反复润色 | 同类问题继续出现时，保留事实，放弃旧骨架重写 |
 
-1. 只凭模型记忆模仿作家，实际没有查读原文；
-2. 所谓“化用”只是替换人物、地点、意象和措辞；
-3. 旧草稿污染新版本，用户删掉的解释和道具换一种写法又回来；
-4. “去 AI 腔”退化为删词表，人物因果、信息分配和场面结构没有改变。
+这里说的“向作家学习”不是复制某个人的声音。Skill 会区分句子、节奏、段落运动、场面结构和留白；越靠近原文措辞，越谨慎。真正优先借鉴的是：一场戏为什么这样推进，谁知道什么，谁故意不说，转折在哪里发生，结束后有什么没有被解释。
 
-本 Skill 为这些问题设置了可执行的门槛：先锁定最新底稿，建立事实账本；需要外部参考时实际取得原文并建立来源卡；先设计无文采骨架，再按人物因果写初稿；反复失败时停止局部修补，从事实和场面功能重建。
-
-## 它自己的优势
-
-### 1. 原文先于仿写
-
-评论、梗概、搜索摘要和模型记忆只能帮助定位。只有实际打开并阅读完整场面及必要前后文，才能声称“参考了某作品”。
-
-### 2. 化用可追溯，也必须发生实质转换
-
-来源被拆成六个层级：直接引用、句法节奏、段落运动、场面机制、宏观结构和负空间。每个来源先建立来源卡，再改变人物关系、知识分配、表达载体、视角、顺序、时间比例、结果或余波。只换姓名地点不算化用。
-
-### 3. 用户最新编辑拥有最高权威
-
-项目上下文使用“已知 / 可推导 / 未知 / 禁止 / 待核验”五栏账本。旧模型草稿不是事实；用户已经删除或否定的道具、解释、人物反应与情节支架不能靠改写重新出现。
-
-### 4. 反 AI 从结构开始
-
-Skill 先检查人物欲望、知识差、场面前后变化、段落功能、对话错位和心理重复，再处理词句。它会拦截环境字幕、完美沟通、格言式段尾、自动治愈、通用道具等生成习惯，但不把文学质量简化成禁词数量。
-
-### 5. 错误骨架不再局部抢救
-
-同类错误被连续指出、事实理解错误、主要转折被否定或场面前后无变化时，旧骨架必须废弃。只保留核实事实和用户明确留下的句子，从新的场面性质变化重新设计。
+它也记得当前作品是谁的。用户最新修改的正文优先于模型旧稿；删掉的道具、解释和人物反应，不能换种说法重新混回来。
 
 ## 适用范围
 
@@ -69,23 +50,23 @@ Skill 先检查人物欲望、知识差、场面前后变化、段落功能、�
 OpenAI 官方文档建议用 `$skill-installer` 从其他仓库安装 Skill：
 
 ```text
-$skill-installer https://github.com/kiyuukinine/research-and-write-fiction
+$skill-installer https://github.com/kiyuukinine/learn-from-writers
 ```
 
 也可以手动克隆到用户级 Skill 目录：
 
 ```bash
-git clone https://github.com/kiyuukinine/research-and-write-fiction.git \
-  "$HOME/.agents/skills/research-and-write-fiction"
+git clone https://github.com/kiyuukinine/learn-from-writers.git \
+  "$HOME/.agents/skills/learn-from-writers"
 ```
 
-Codex CLI 或 IDE 中可以输入 `$research-and-write-fiction` 显式调用。
+Codex CLI 或 IDE 中可以输入 `$learn-from-writers` 显式调用。
 
 ### Claude Code
 
 ```bash
-git clone https://github.com/kiyuukinine/research-and-write-fiction.git \
-  "$HOME/.claude/skills/research-and-write-fiction"
+git clone https://github.com/kiyuukinine/learn-from-writers.git \
+  "$HOME/.claude/skills/learn-from-writers"
 ```
 
 不同版本或客户端的 Skill 路径可能不同，请以各自当前文档为准。
@@ -93,14 +74,14 @@ git clone https://github.com/kiyuukinine/research-and-write-fiction.git \
 ## 使用示例
 
 ```text
-使用 $research-and-write-fiction。
+使用 $learn-from-writers。
 以我刚刚编辑后的正文为唯一底稿，不恢复旧版删掉的道具。
 参考契诃夫处理尴尬重逢的场面机制，但不要模仿措辞。
 先实际查读原文和上下文，给我一份带来源卡的研究稿。
 ```
 
 ```text
-使用 $research-and-write-fiction。
+使用 $learn-from-writers。
 这已经是第三版，前两版都把对话写成了采访。
 不要继续修句子，废弃旧骨架；只保留我明确留下的事实，重写这一场。
 最终只给净稿。
@@ -129,7 +110,7 @@ git clone https://github.com/kiyuukinine/research-and-write-fiction.git \
 
 ## 设计来源与致谢
 
-简介中的 “research-driven”、分阶段 pipeline、清晰的适用边界、项目上下文、复查 gate 和回归测试，并不是凭空造出的宣传词，而是依据下列公开项目的实际组织方式重新组合，并只保留与本 Skill 功能相符的部分：
+下面这些项目帮助我确定怎样把它做成一个真正可调用、可维护的 Skill：哪些规则应放在主文件，哪些资料按需读取，怎样写边界、阶段和测试。它们提供的是 Skill 的组织方法，不是这套小说写法本身。
 
 - [d-wwei/great-writer](https://github.com/d-wwei/great-writer)：research-driven、分模式路由、六阶段 pipeline、多轮 polish 与 anti-AI-slop 的仓库表达方式；
 - [SNL-UCSB/paper-writing-skill](https://github.com/SNL-UCSB/paper-writing-skill)：project context、阶段门槛、分项 checklist、压缩与独立复查的设计；

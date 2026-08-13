@@ -1,14 +1,14 @@
 interface:
-  display_name: 研究型文学写作与化用
-  short_description: 原文查读、可追溯化用与结构性反 AI 小说写作
-  default_prompt: 使用 $research-and-write-fiction，以我的最新正文和项目资料为准；实际查读相关原作、拆解可迁移的叙事机制，并完成不复刻表层措辞的小说改写。
-  icon_small: assets/icon.svg
-  icon_large: assets/icon.svg
+  display_name: "先读作家，再写小说"
+  short_description: "从真人作品里学习写法，而不是沿用模型默认的 AI 文风"
+  default_prompt: "使用 $learn-from-writers。先实际查读我指定的真人作品，判断作者怎样处理人物、节奏、视角、信息和留白，再把这些方法化用到我的最新正文；不要凭模型记忆仿写，也不要沿用默认 AI 文风。"
+  icon_small: "assets/icon.svg"
+  icon_large: "assets/icon.svg"
   brand_color: "#315A52"
 policy:
   products:
-  - chatgpt
-  - codex
-  - api
-  - atlas
+    - "chatgpt"
+    - "codex"
+    - "api"
+    - "atlas"
   allow_implicit_invocation: true

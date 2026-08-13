@@ -1,20 +1,24 @@
-# research-and-write-fiction
+# Read writers before writing fiction
 
-> A research-driven fiction-writing skill for Codex and Claude: primary-text reading, traceable literary adaptation, project-aware revision, and structural anti-AI-slop checks.
+> `learn-from-writers` makes the model learn from fiction written by actual people instead of imitating its own default AI prose.
 
 [中文](README.md)
 
-This Agent Skill is built for fiction and narrative prose. It combines primary-text research, project continuity, narrative-mechanism extraction, traceable adaptation, and staged revision in one workflow.
+I built this because telling a model to “write like X” rarely makes it read X. It usually guesses at an author-shaped mood from memory and then writes the same familiar AI scene: atmosphere first, explained feelings, unusually tidy dialogue, and a final sentence that tells you what it all meant.
 
-It is deliberately narrower than a universal writing toolkit. Its job is not to make a model produce prettier sentences by default. Its job is to stop prose generation until the current draft, character causality, scene movement, and—when requested—the actual literary source have been established.
+`learn-from-writers` changes the source of the writing. Before drafting, the model must find and read the relevant passage by the actual writer, including enough surrounding text to understand how the scene works. It then carries the writer's decisions about character, timing, point of view, information, and omission into a new scene. It does not copy sentences or paste a famous voice over your characters.
 
-## Core advantages
+## What changes
 
-1. **Primary text before imitation.** Search snippets, summaries, reviews, and model memory may locate a passage, but they do not count as reading it.
-2. **Mechanisms before wording.** Sources are analyzed at six levels: quotation, syntax/rhythm, paragraph movement, scene mechanism, macro structure, and negative space.
-3. **Latest user edits outrank stale drafts.** A five-column fact ledger tracks known, inferable, unknown, forbidden, and unverified material.
-4. **Structural anti-AI review.** The workflow checks causality, information distribution, scene change, dialogue, and paragraph function before lexical cleanup.
-5. **Forced rebuild after structural failure.** Repeated errors or invalid premises trigger a new skeleton instead of another local polish pass.
+| A normal writing prompt | This skill |
+|---|---|
+| Guesses an author's style from model memory | Opens and reads the relevant primary text |
+| Writes default AI prose, then changes the vocabulary | Studies how a human writer moves the scene before building a new one |
+| Treats adaptation as swapping names and images | Changes relationships, knowledge, medium, order, outcome, and aftermath |
+| Uses a blacklist to remove “AI words” | Checks over-explanation, perfect communication, emotional stage directions, and moralizing endings |
+| Keeps polishing a failed draft | Abandons the broken skeleton and rebuilds from verified facts |
+
+The latest user-edited draft always outranks earlier model output. Material the user removed cannot quietly return under new wording.
 
 ## Use it for
 
@@ -31,23 +35,23 @@ It is not a general marketing, academic, technical-documentation, or social-medi
 ### Codex
 
 ```text
-$skill-installer https://github.com/kiyuukinine/research-and-write-fiction
+$skill-installer https://github.com/kiyuukinine/learn-from-writers
 ```
 
 Or clone it into the user-level Skill location:
 
 ```bash
-git clone https://github.com/kiyuukinine/research-and-write-fiction.git \
-  "$HOME/.agents/skills/research-and-write-fiction"
+git clone https://github.com/kiyuukinine/learn-from-writers.git \
+  "$HOME/.agents/skills/learn-from-writers"
 ```
 
-Invoke it explicitly with `$research-and-write-fiction` in Codex CLI or the IDE extension.
+Invoke it explicitly with `$learn-from-writers` in Codex CLI or the IDE extension.
 
 ### Claude Code
 
 ```bash
-git clone https://github.com/kiyuukinine/research-and-write-fiction.git \
-  "$HOME/.claude/skills/research-and-write-fiction"
+git clone https://github.com/kiyuukinine/learn-from-writers.git \
+  "$HOME/.claude/skills/learn-from-writers"
 ```
 
 ## Design provenance

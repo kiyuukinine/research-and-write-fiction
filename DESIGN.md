@@ -80,16 +80,14 @@
 - 不把主观文学判断伪装成完全机械评分；
 - 不把评测表输出给只要正文的用户。
 
-## 6. 简介的形成
+## 6. 为什么改名为 `learn-from-writers`
 
-仓库一句话简介采用公开 Writing Skill 常见的“定位 + 关键能力”句式：
+旧名 `research-and-write-fiction` 说的是流程，没有说清它究竟改变了什么。旧简介又把 primary-text、adaptation、project-aware、anti-AI 等能力压在一句话里，像功能清单，也把最重要的区别藏了起来。
 
-> A research-driven fiction-writing skill for Codex and Claude: primary-text reading, traceable literary adaptation, project-aware revision, and structural anti-AI-slop checks.
+新名称直接说明这套 Skill 的起点：模型不要继续从自己的默认文风里取样，而要先去读真人作家的作品。中文标题“先读作家，再写小说”把使用顺序也写了出来。
 
-其中：
+新的公开简介是：
 
-- “research-driven” 与 “anti-AI-slop” 是对 [great-writer](https://github.com/d-wwei/great-writer) 仓库定位方式的明确借鉴；
-- “for Codex and Claude” 依据多个跨客户端 Skill 的分发习惯，以及 OpenAI 官方的 Agent Skills 标准；
-- 冒号后的四项不是宣传性形容词，而是本仓库已有文件和门槛能够逐项对应的能力。
+> 让模型先读真人作品，再写小说：实际查读原文，弄清作家怎样处理人物、节奏、视角和留白，再把这些方法化用到你的故事里，而不是继续生成默认的 AI 文风。
 
-因此，这句简介不是从空白处自由发挥，也没有直接复制某个项目的完整描述。
+这句话不再罗列所有功能。来源卡、项目连续性、分轮返修和强制重建仍然存在，但它们是为了支撑“从真人文本学习”这件事，不应抢占项目的第一印象。
